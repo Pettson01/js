@@ -68,3 +68,24 @@ p{
 #list_right{
   margin-left: 30px;
 }
+
+a{
+  display: block;
+  border: 5px white solid;
+  width: 4vw;
+  height: 4vh;
+  padding: 10px;
+  text-decoration: none;
+  margin-top: 10px;
+  color: black;
+  background-color: #2E86C1;
+}
+
+
+a:hover{
+  background-color: #3ca5ec;
+}
+
+#Ending{
+  margin-top: 100px;
+}

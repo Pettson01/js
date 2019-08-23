@@ -37,14 +37,20 @@
   margin-top: 20px;
 }
 
-#selecterSubject{
-  margin-left: 350px;
-}
 
 #selectPoints{
-  margin-left: 320px;
+  margin-left: 170px;
 }
 
-#selectGrade{
-  margin-left: 350px;
+#buttonLast{
+  margin-left: 45.5vw;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: green;
+}
+
+#kurser{
+  width: 15vw;
+  margin-left: 340px;
+  float: left;
 }

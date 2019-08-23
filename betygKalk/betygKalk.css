@@ -1,0 +1,50 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+#rubrik{
+    width: 90vw;
+    height: 10vh;
+    border: black 10px solid;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 5vw;
+}
+
+#rubrik h1{
+  margin-top: 15px;
+}
+
+#button{
+  margin-left: 45vw;
+  margin-top: 30px;
+  padding: 10px;
+  background-color: orange;
+}
+
+
+
+#rubriker{
+  width: 100vw;
+  height: 10vh;
+}
+
+#rubriker p{
+  float: left;
+  margin-left: 350px;
+  margin-top: 20px;
+}
+
+#selecterSubject{
+  margin-left: 350px;
+}
+
+#selectPoints{
+  margin-left: 320px;
+}
+
+#selectGrade{
+  margin-left: 350px;
+}

@@ -24,22 +24,24 @@
   background-color: orange;
 }
 
-
-
 #rubriker{
-  width: 100vw;
+  width: 90vw;
   height: 10vh;
 }
 
 #rubriker p{
   float: left;
-  margin-left: 350px;
+
   margin-top: 20px;
 }
 
+#ParOne{
+  margin-left: 340px;
+}
 
-#selectPoints{
-  margin-left: 170px;
+#ParTwo{
+  margin-left: 240px;
+  margin-right: 150px;
 }
 
 #buttonLast{
@@ -53,4 +55,23 @@
   width: 15vw;
   margin-left: 340px;
   float: left;
+}
+
+#betyg{
+  width: 15vw;
+  float: left;
+  margin-left: -40px;
+}
+
+#poäng{
+  width: 15vw;
+  float: left;
+}
+
+input{
+  margin-bottom: 20px;
+}
+
+select{
+  margin-bottom: 15px;
 }

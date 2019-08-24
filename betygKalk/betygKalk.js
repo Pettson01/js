@@ -6,6 +6,6 @@
 
 
   function mySecondFunction(){
-    var point1 = document.getElementById("selectPoints").value;
+    var point1 = document.getElementById("selectPoints_1").value;
     alert("Dina poäng: " + point1);
   }

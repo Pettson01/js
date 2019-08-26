@@ -7,6 +7,7 @@
   let betygSumman = 0;
   let jTal = 0;
   let subjectValue = 0;
+  let kravTillExamen = 0;
 
 /*
  A = 20;                                            Godkännt i: - Svenska 1, 2, 3
@@ -87,18 +88,30 @@
       for (i = 0; i < 7; i++) {
           if(document.getElementById(theIdSubject[i]).checked){
             subjectValue++;
-            console.log("idsubject 1: " + i)
           }
         }
 
+        //Skapar den svarta boxen runt resultatet
+        document.getElementById("resultBox").style.border = "thick solid black"
 
       if (subjectValue / 7 == 1) {
-        alert("Du har fått gymnasieexamnen");
+        //Du har läst svenska 1,2,3 & engelska 5,6 & matematik 1 & har ett Godkännt Gymnasiearbete
+        if (document.getElementById("selectGrade_25").value == "F") {
+          document.getElementById("resultingPar2").innerHTML = "Du missade ett av de grundläggande ämnena som behövdes, så du fick inte gymnasieexamen.";
+        }
+        else {
+          document.getElementById("resultingPar4").innerHTML = "Du läste och klarade de grundläggande ämnena för att få gymnasieexamen.";
+          kravTillExamen++;
+
+        }
       }
 
       else {
-        alert("Du har inte fåtta enstaka ämnen som behövdes");
+       //Du har inte läst svenska 1,2,3 & engelska 5,6 & matematik 1 & har inte ett Godkännt Gymnasiearbete
+       document.getElementById("resultingPar4").innerHTML = "Du missade ett av de grundläggande ämnena som behövdes för att få gymnasieexamen.";
       }
+
+
       //Kollar så att man har fått alla ämnen
       for(i = 0; i < 18; i++){
         if (document.getElementById(theIdSubjectAll[i]).checked) {
@@ -107,28 +120,37 @@
         }
       }
       if (subjectValue - 25 == 0) {
-        alert("Du har klickat i alla ämnen");
+        //Du har läst tillräckligt med ämnen
+        document.getElementById("resultingPar3").innerHTML = "Du har läst alla ämnen som behövdes för att få gymnasieexamen.";
+        kravTillExamen++;
       }
       else {
-        alert("Du har läst för lite ämnen");
+        //Du har läst för lite ämnen
+        document.getElementById("resultingPar3").innerHTML = "Du har läst för få ämnen och kan inte få gymnasieexamen.";
       }
 
       if(totalSumPoints - 2250 < 0){
-        alert("Du har för lite poäng")
+        //Du har inte tillräckligt med poäng
+        document.getElementById("resultingPar2").innerHTML = "Du har inte tillräckligt med poäng för att få gymmnasieexamen.";
       }
-
-
-    alert("The total sum of points: " + totalSumPoints); //Must have
-    alert("betygSumman: " + betygSumman); //debugging
+      else {
+        //Du har tillräckligt med poäng
+        document.getElementById("resultingPar2").innerHTML = "Du har tillräckligt med poäng för gymnasieexamen.";
+        kravTillExamen++;
+      }
 
 
     //To fixed gör om variabeln till en string och gör att det endast blir 2 decimaler i talet.
     jTal = (betygSumman / totalSumPoints).toFixed(2);
 
-    alert("Jämförelsetal: " + jTal);
 
-    alert("Jämförelsetal: " + jTal + "\nTotala Summan av poäng: " + totalSumPoints + "\nDu klarade / klarade inte kursen" + "\nBetygsumman: " + betygSumman + "\nSubjectValue: " + subjectValue);
+    if (kravTillExamen == 3) {
+      document.getElementById("resultingPar1").innerHTML =  "Jämförelsetal:" + jTal + "<br>Du har läst klart " + totalSumPoints + " poäng." + "<br> <br> <b> Du har fått gymnasieexamen </b> <br>";
+    }
 
+    else {
+      document.getElementById("resultingPar1").innerHTML =  "Jämförelsetal:" + jTal + "<br>Du har läst klart " + totalSumPoints + " poäng." + "<br> <br> <b> Du har inte fått gymnasieexamen </b> <br>";
+    }
   }
 
 

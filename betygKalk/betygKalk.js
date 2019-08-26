@@ -6,13 +6,14 @@
   let betyg = "";
   let betygSumman = 0;
   let jTal = 0;
+  let subjectValue = 0;
 
 /*
- A = 20;
- B = 17.5
- C = 15;
- D = 12.5;
- E = 10;
+ A = 20;                                            Godkännt i: - Svenska 1, 2, 3
+ B = 17.5                                                       - Engelska 5, 6
+ C = 15;                                                        - Matematik 1
+ D = 12.5;                                                      - Gymnasiearbete
+ E = 10;                                                        - 2 350 poäng av 2500
  F = 0;
 */
 
@@ -27,23 +28,24 @@
                     "selectGrade_15", "selectGrade_16", "selectGrade_17", "selectGrade_18", "selectGrade_19", "selectGrade_20", "selectGrade_21",
                     "selectGrade_22", "selectGrade_23", "selectGrade_24", "selectGrade_25"];
 
+  let theIdSubject = ["selectSubject_1", "selectSubject_2", "selectSubject_3", "selectSubject_4", "selectSubject_5", "selectSubject_6", "selectSubject_7"];
 
+  let theIdSubjectAll = ["selectSubject_1A", "selectSubject_2A", "selectSubject_3A", "selectSubject_4A", "selectSubject_5A", "selectSubject_6A", "selectSubject_7A",
+                         "selectSubject_8A", "selectSubject_9A", "selectSubject_10A", "selectSubject_11A", "selectSubject_12A", "selectSubject_13A", "selectSubject_14A",
+                         "selectSubject_15A", "selectSubject_16A", "selectSubject_17A", "selectSubject_18A"];
 
   function addingPoints(){
     pointsA = parseInt(document.getElementById(theIdPoints[i]).value);
 
-    return pointsA;
+      return pointsA;
       }
-
-
-
-
 
   function myFunction(){
     totalSumPoints = 0;
     pointsA = 0;
     pointsB = 0;
     betygSumman = 0;
+    subjectValue = 0;
 
       for(i = 0; i < 24; i++){
         pointsB = addingPoints();
@@ -80,13 +82,52 @@
         totalSumPoints = pointsB + totalSumPoints;
       }
 
+      //Kollar ifall man har tillräckligt med ämnen för gymnasieexamen
+      //.checked ger ett true eller false value.
+      for (i = 0; i < 7; i++) {
+          if(document.getElementById(theIdSubject[i]).checked){
+            subjectValue++;
+            console.log("idsubject 1: " + i)
+          }
+        }
+
+
+      if (subjectValue / 7 == 1) {
+        alert("Du har fått gymnasieexamnen");
+      }
+
+      else {
+        alert("Du har inte fåtta enstaka ämnen som behövdes");
+      }
+      //Kollar så att man har fått alla ämnen
+      for(i = 0; i < 18; i++){
+        if (document.getElementById(theIdSubjectAll[i]).checked) {
+          subjectValue++;
+          console.log("idsubject 2: " + i)
+        }
+      }
+      if (subjectValue - 25 == 0) {
+        alert("Du har klickat i alla ämnen");
+      }
+      else {
+        alert("Du har läst för lite ämnen");
+      }
+
+      if(totalSumPoints - 2250 < 0){
+        alert("Du har för lite poäng")
+      }
+
+
     alert("The total sum of points: " + totalSumPoints); //Must have
     alert("betygSumman: " + betygSumman); //debugging
+
 
     //To fixed gör om variabeln till en string och gör att det endast blir 2 decimaler i talet.
     jTal = (betygSumman / totalSumPoints).toFixed(2);
 
     alert("Jämförelsetal: " + jTal);
+
+    alert("Jämförelsetal: " + jTal + "\nTotala Summan av poäng: " + totalSumPoints + "\nDu klarade / klarade inte kursen" + "\nBetygsumman: " + betygSumman + "\nSubjectValue: " + subjectValue);
 
   }
 

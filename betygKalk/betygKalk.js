@@ -19,6 +19,7 @@
  F = 0;
 */
 
+//Alla olika id:n som finns i html
   let theIdPoints = ["selectPoints_1","selectPoints_2","selectPoints_3","selectPoints_4","selectPoints_5","selectPoints_6",
                     "selectPoints_7","selectPoints_8","selectPoints_9","selectPoints_10","selectPoints_11","selectPoints_12",
                     "selectPoints_13","selectPoints_14","selectPoints_15","selectPoints_16","selectPoints_17","selectPoints_18",

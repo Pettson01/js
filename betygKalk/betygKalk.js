@@ -101,12 +101,15 @@
         if (document.getElementById(theIdGradeA[i]).value == "F") {
           i = 7;
           resultingIndex = 7;
-          console.log("Du fick F i ett eller fler ämnen");
+          //Du fick F i ett eller fler ämmnen
         }
         else if (document.getElementById(theIdGradeA[i]).value == "0") {
           i = 7;
           resultingIndex = 7;
-          console.log("Du fick '0' i ett eller fler ämnen");
+          //Du fick '0' i ett eller fler ämnen
+        }
+        else {
+          resultingIndex = 0;
         }
       }
 
@@ -114,6 +117,7 @@
         document.getElementById("resultBox").style.border = "thick solid black"
 
       if (subjectValue / 7 == 1) {
+
         //Du har läst svenska 1,2,3 & engelska 5,6 & matematik 1 & har ett Godkännt Gymnasiearbete
         if (document.getElementById("selectGrade_25").value == "F") {
           document.getElementById("resultingPar4").innerHTML = "Du missade ett eller flera av de grundläggande ämnena som behövdes för att få gymnasieexamen.";

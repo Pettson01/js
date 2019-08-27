@@ -103,6 +103,11 @@
           resultingIndex = 7;
           console.log("Du fick F i ett eller fler ämnen");
         }
+        else if (document.getElementById(theIdGradeA[i]).value == "0") {
+          i = 7;
+          resultingIndex = 7;
+          console.log("Du fick '0' i ett eller fler ämnen");
+        }
       }
 
         //Skapar den svarta boxen runt resultatet

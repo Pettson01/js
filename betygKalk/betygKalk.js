@@ -8,6 +8,7 @@
   let jTal = 0;
   let subjectValue = 0;
   let kravTillExamen = 0;
+  let resultingIndex = 0;
 
 /*
  A = 20;                                            Godkännt i: - Svenska 1, 2, 3
@@ -35,6 +36,9 @@
                          "selectSubject_8A", "selectSubject_9A", "selectSubject_10A", "selectSubject_11A", "selectSubject_12A", "selectSubject_13A", "selectSubject_14A",
                          "selectSubject_15A", "selectSubject_16A", "selectSubject_17A", "selectSubject_18A"];
 
+  let theIdGradeA = ["selectGrade_1", "selectGrade_5", "selectGrade_6", "selectGrade_9", "selectGrade_10", "selectGrade_11", "selectGrade_25"];
+
+  //Funktion för att få ut poängen
   function addingPoints(){
     pointsA = parseInt(document.getElementById(theIdPoints[i]).value);
 
@@ -42,16 +46,18 @@
       }
 
   function myFunction(){
+    //Nollställer alla värden då man klickar på knappen så inget läses in fel
     totalSumPoints = 0;
     pointsA = 0;
     pointsB = 0;
     betygSumman = 0;
     subjectValue = 0;
+    kravTillExamen = 0;
 
+      //Kollar vilka betyg dy har valt och räknar ut din toal poä
       for(i = 0; i < 24; i++){
         pointsB = addingPoints();
         betyg = document.getElementById(theIdGrade[i]).value;
-        console.log("bing: " + i);
 
         switch (betyg) {
           case "A":
@@ -91,24 +97,38 @@
           }
         }
 
+      for (i = 0; i < 7; i++){
+        if (document.getElementById(theIdGradeA[i]).value == "F") {
+          i = 7;
+          resultingIndex = 7;
+          console.log("Du fick F i ett eller fler ämnen");
+        }
+      }
+
         //Skapar den svarta boxen runt resultatet
         document.getElementById("resultBox").style.border = "thick solid black"
 
       if (subjectValue / 7 == 1) {
         //Du har läst svenska 1,2,3 & engelska 5,6 & matematik 1 & har ett Godkännt Gymnasiearbete
         if (document.getElementById("selectGrade_25").value == "F") {
-          document.getElementById("resultingPar2").innerHTML = "Du missade ett av de grundläggande ämnena som behövdes, så du fick inte gymnasieexamen.";
+          document.getElementById("resultingPar4").innerHTML = "Du missade ett eller flera av de grundläggande ämnena som behövdes för att få gymnasieexamen.";
         }
         else {
-          document.getElementById("resultingPar4").innerHTML = "Du läste och klarade de grundläggande ämnena för att få gymnasieexamen.";
-          kravTillExamen++;
+          if (resultingIndex == 7) {
+            document.getElementById("resultingPar4").innerHTML = "Du missade ett eller flera av de grundläggande ämnena som behövdes för att få gymnasieexamen.";
+          }
+          else {
+            document.getElementById("resultingPar4").innerHTML = "Du läste och klarade de grundläggande ämnena för att få gymnasieexamen.";
+            kravTillExamen++;
+          }
+//Fixa denna delen, den säger att du har klarat kursenifall du har klickar i den.
 
         }
       }
 
       else {
        //Du har inte läst svenska 1,2,3 & engelska 5,6 & matematik 1 & har inte ett Godkännt Gymnasiearbete
-       document.getElementById("resultingPar4").innerHTML = "Du missade ett av de grundläggande ämnena som behövdes för att få gymnasieexamen.";
+       document.getElementById("resultingPar4").innerHTML = "Du missade ett eller flera av de grundläggande ämnena som behövdes för att få gymnasieexamen.";
       }
 
 
@@ -116,7 +136,6 @@
       for(i = 0; i < 18; i++){
         if (document.getElementById(theIdSubjectAll[i]).checked) {
           subjectValue++;
-          console.log("idsubject 2: " + i)
         }
       }
       if (subjectValue - 25 == 0) {

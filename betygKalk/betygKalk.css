@@ -17,12 +17,6 @@
   margin-top: 15px;
 }
 
-#button{
-  margin-left: 45vw;
-  margin-top: 30px;
-  padding: 10px;
-  background-color: orange;
-}
 
 #rubriker{
   width: 90vw;
@@ -40,8 +34,8 @@
 }
 
 #ParTwo{
-  margin-left: 240px;
-  margin-right: 150px;
+  margin-left: 200px;
+  margin-right: 120px;
 }
 
 #buttonLast{
